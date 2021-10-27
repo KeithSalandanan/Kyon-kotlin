@@ -68,12 +68,8 @@ class ClassificationActivity : AppCompatActivity() {
     }
 
     private fun loadImage() {
-        val image_path: String? = intent.getStringExtra("imagePath")
-
-
-            myUri = Uri.parse(image_path)
+            myUri = Uri.parse(intent.getStringExtra("strImg"))
             ImgCaptured.setImageURI(myUri)
-
     }
 
 
