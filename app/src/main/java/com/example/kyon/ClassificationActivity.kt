@@ -68,7 +68,7 @@ class ClassificationActivity : AppCompatActivity() {
     }
 
     private fun loadImage() {
-            myUri = Uri.parse(intent.getStringExtra("strImg"))
+            myUri = Uri.parse(intent.getStringExtra("imagePath"))
             ImgCaptured.setImageURI(myUri)
     }
 

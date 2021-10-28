@@ -2,10 +2,12 @@ package com.example.kyon
 
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -28,6 +30,7 @@ import java.util.concurrent.Executors
 
 class CameraActivity : AppCompatActivity() {
     private var imageCapture:ImageCapture? = null
+    private var selectImage:Uri? = null
     private lateinit var outputDirectory:File
     lateinit var viewFinder:PreviewView
     lateinit var cameraExecutor :ExecutorService
@@ -35,6 +38,7 @@ class CameraActivity : AppCompatActivity() {
     private var mPhotoPath: String? = null
     private var mSwitchCameraState = CameraSelector.LENS_FACING_BACK
     private var mZoomState = 0.0f
+    val imagePath = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,17 +50,24 @@ class CameraActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
-        takePictureButton.setOnClickListener { takePhoto() }
+
 
         outputDirectory = getOutputDirectory()
-        viewFinder = findViewById(R.id.viewFinder)
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        btnClose.setOnClickListener { closeCamera() }
+
 
         //initiate zoom level otherwise is not in the foreground -> bug?
         zoomTextView.setText(mZoomState.toString() + "x")
         zoomTextView.setVisibility(View.INVISIBLE)
+        viewFinder = findViewById(R.id.viewFinder)
+
+
+        //Listeners
+        switchCameraButton.setOnClickListener { switchCamera() }
+        btnClose.setOnClickListener { closeCamera() }
+        takePictureButton.setOnClickListener { takePhoto() }
+        openGalleryButton.setOnClickListener { openGallery() }
 
     }
     companion object {
@@ -67,8 +78,9 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun closeCamera() {
-        val Intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+//        val Intent = Intent(this, MainActivity::class.java)
+//        startActivity(intent)
+        finish()
     }
     private fun getOutputDirectory(): File {
         val mediaDir = externalMediaDirs.firstOrNull()?.let {
@@ -110,21 +122,26 @@ class CameraActivity : AppCompatActivity() {
             val imageAnalyzer = ImageAnalysis.Builder()
                 .build()
                 .also {
-                    it.setAnalyzer(cameraExecutor, ImageAnalyzer(this,resultView))
+                    it.setAnalyzer(cameraExecutor, ImageAnalyzer(this,resultView,takePictureButton,SignalText))
                 }
 
             // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            val cameraSelector = CameraSelector.Builder()
+                .requireLensFacing(mSwitchCameraState)
+                .build()
 
             try {
                 // Unbind use cases before rebinding
                 cameraProvider.unbindAll()
 
                 // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
+               val camera = cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview, imageCapture, imageAnalyzer)
 
 
+                //control zoom
+                val cameraControl = camera.cameraControl
+                controlZoom(cameraControl)
             } catch(exc: Exception) {
                 Log.e(TAG, "Use case binding failed", exc)
             }
@@ -158,8 +175,8 @@ class CameraActivity : AppCompatActivity() {
                     val msg = "Photo capture succeeded: $savedUri"
 //                    Toast.makeText(baseContext, msg, Toast.LENGTH_LONG).show()
                     Log.d(TAG, msg)
-                    val strImg = ""
-                    intent.putExtra("strImg",savedUri.toString())
+
+                    intent.putExtra("imagePath",savedUri.toString())
                     startActivity(intent)
 
                 }
@@ -186,6 +203,38 @@ class CameraActivity : AppCompatActivity() {
             }
         })
     }
+    private fun switchCamera() {
+        if (!switchCameraButton.isChecked()) {
+            mSwitchCameraState = CameraSelector.LENS_FACING_BACK
+            startCamera()
+        } else {
+            mSwitchCameraState = CameraSelector.LENS_FACING_FRONT
+            startCamera()
+        }
+    }
+
+    //Opens Gallery
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, 3)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, requestCode, data)
+        if (resultCode == RESULT_OK && data != null) {
+            selectImage = data.data
+            val tfAnalyze = ImageAnalyzerTensorflow(this)
+            if (tfAnalyze.detectDog(selectImage)!!) {
+                Toast.makeText(this, "Dogs Detected", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, ClassificationActivity::class.java)
+                intent.putExtra("imagePath", selectImage.toString())
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "No Dogs Detected", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all{
         ContextCompat.checkSelfPermission(
             baseContext, it) == PackageManager.PERMISSION_GRANTED
