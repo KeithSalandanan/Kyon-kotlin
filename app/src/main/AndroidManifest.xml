@@ -2,16 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.kyon">
+
     <uses-feature android:name="andoid.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Kyon">
+        android:theme="@style/Theme.Kyon"
+        android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/xml" />
+
         <activity
             android:name=".GenOffspringResults"
             android:exported="false"
@@ -24,6 +32,9 @@
             android:exported="false" />
         <activity
             android:name=".CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GenOffpsringActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

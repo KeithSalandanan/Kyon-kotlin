@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startGenerate() {
-        val intent = Intent(this, GenOffspringActivity::class.java)
+        val intent = Intent(this, GenOffpsringActivity::class.java)
         startActivity(intent)
     }
 
