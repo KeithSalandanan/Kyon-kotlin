@@ -40,7 +40,7 @@
                 android:text="Scan, classify and generate"
                 android:fontFamily="@font/montserrat_light"
                 android:textColor="@color/primary_text_yellow"
-                android:textSize="@dimen/_13ssp"
+                android:textSize="@dimen/_11ssp"
                 app:layout_constraintTop_toBottomOf="@id/textTitle"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -113,7 +113,7 @@
                             android:text="Scan and Identify your dog's breed."
                             android:fontFamily="@font/montserrat_light"
                             android:textColor="@color/secondary_text"
-                            android:textSize="@dimen/_16ssp"/>
+                            android:textSize="@dimen/_14ssp"/>
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="match_parent"
@@ -185,7 +185,7 @@
 
                         android:background="@drawable/rounded_labels_right"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         android:textStyle="bold"/>
 
                     <LinearLayout
@@ -209,7 +209,7 @@
                             android:text="See what your dog's possible offspring will look like."
                             android:fontFamily="@font/montserrat_light"
                             android:textColor="@color/secondary_text"
-                            android:textSize="@dimen/_16ssp"/>
+                            android:textSize="@dimen/_12ssp"/>
 
 
 
