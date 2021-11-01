@@ -29,6 +29,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:text="Kyon"
+                android:fontFamily="@font/montserrat_black"
                 android:background="@drawable/rounded_labels_title"
                 android:textColor="@color/primary_text_yellow"
                 android:textSize="@dimen/_28sdp"
@@ -89,16 +90,18 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textAlignment="center"
                     android:text="Your dog is"
+                    android:fontFamily="@font/montserrat_light"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_20ssp" />
                 <TextView
                     android:id="@+id/txtResults"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:textAlignment="center"
                     android:text=""
                     android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_extrabold"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
 
@@ -111,6 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_5sdp"
+                    android:fontFamily="@font/montserrat_extrabold"
                     android:text="SAVE"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -122,6 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_10sdp"
+                    android:fontFamily="@font/montserrat_extrabold"
                     android:text="Ok"/>
 
             </LinearLayout>

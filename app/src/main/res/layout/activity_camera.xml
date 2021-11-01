@@ -43,12 +43,13 @@
             android:layout_marginBottom="16dp"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:elevation="7dp"
             app:layout_constraintBottom_toTopOf="@+id/zoomSliderSeekBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Zoom Level" />
+            android:fontFamily="@font/montserrat_light"
+            tools:text="ZOOM LEVEL" />
 
         <ImageView
             android:id="@+id/boundingBox"
@@ -115,6 +116,7 @@
             android:elevation="7dp"
             android:background="@color/primary_text_yellow"
             android:text="@string/take_photo"
+            android:fontFamily="@font/montserrat_light"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="11sp"

@@ -25,9 +25,9 @@
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:text="Kyon"
+                android:fontFamily="@font/montserrat_black"
                 android:textColor="@color/primary_text_yellow"
                 android:textSize="@dimen/_28sdp"
-                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
@@ -38,6 +38,7 @@
                 android:layout_marginStart="@dimen/_24sdp"
                 android:layout_marginEnd="@dimen/_24sdp"
                 android:text="Scan, classify and generate"
+                android:fontFamily="@font/montserrat_light"
                 android:textColor="@color/primary_text_yellow"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintTop_toBottomOf="@id/textTitle"
@@ -93,6 +94,7 @@
                         android:paddingBottom="@dimen/_5sdp"
 
                         android:text="Classify Dog Breed"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
@@ -109,6 +111,7 @@
                             android:layout_height="@dimen/_85sdp"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:text="Scan and Identify your dog's breed."
+                            android:fontFamily="@font/montserrat_light"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/_16ssp"/>
 
@@ -178,6 +181,8 @@
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
                         android:text="Generate Offspring"
+                        android:fontFamily="@font/montserrat_semibold"
+
                         android:background="@drawable/rounded_labels_right"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14ssp"
@@ -202,6 +207,7 @@
                             android:layout_height="@dimen/_85sdp"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:text="See what your dog's possible offspring will look like."
+                            android:fontFamily="@font/montserrat_light"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/_16ssp"/>
 
