@@ -75,6 +75,7 @@ class CameraActivity : AppCompatActivity() {
         btnClose.setOnClickListener { closeCamera() }
         takePictureButton.setOnClickListener { takePhoto() }
         openGalleryButton.setOnClickListener { openGallery() }
+        supportActionBar?.hide()
 
     }
     companion object {

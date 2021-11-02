@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         cardGenerate.setOnClickListener { startGenerate() }
+        supportActionBar?.hide()
     }
 
     private fun hasCameraPermission(): Boolean {

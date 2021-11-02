@@ -25,7 +25,7 @@ class GenOffspringActivity : AppCompatActivity() {
         }
         //change the link
         webView.loadUrl("https://www.google.com")
-
+        supportActionBar?.hide()
 
     }
 }

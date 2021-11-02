@@ -64,7 +64,7 @@ class ClassificationActivity : AppCompatActivity() {
             Toast.makeText(this, "Ayaw mag classify", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
         }
-
+        supportActionBar?.hide()
     }
 
     private fun loadImage() {
