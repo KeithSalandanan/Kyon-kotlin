@@ -22,7 +22,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
     public static final int REQUEST_SELECT_FILE = 100;
     private final static int FILECHOOSER_RESULTCODE = 1;
 
-    public String url ="http://192.168.1.4:5000/";
+    public String url ="http://192.168.68.105:5000/";
 
 
     @Override
@@ -94,7 +94,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(i, "File Chooser"), FILECHOOSER_RESULTCODE);
             }
         });
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
 
 
