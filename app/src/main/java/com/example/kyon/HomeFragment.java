@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void startGenerate() {
-        Intent intent = new Intent(getActivity(), GenOffspringActivity.class);
+        Intent intent = new Intent(getActivity(), GenOffpsringActivity.class);
         startActivity(intent);
     }
 
