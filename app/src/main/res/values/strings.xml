@@ -2,4 +2,6 @@
     <string name="app_name">Kyon</string>
     <string name="take_photo">TAKE A PHOTO OF A DOG</string>
     <string name="no_detected">NO DOG DETECTED</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
