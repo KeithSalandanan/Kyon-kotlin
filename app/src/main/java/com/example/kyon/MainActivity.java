@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
+
 
 //        NeumorphCardView cardClassify= findViewById(R.id.cardClassifyDog);
 //        NeumorphCardView cardGenerate= findViewById(R.id.cardGenerateOffspring);
