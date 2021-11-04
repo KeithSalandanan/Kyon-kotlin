@@ -22,7 +22,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
     public static final int REQUEST_SELECT_FILE = 100;
     private final static int FILECHOOSER_RESULTCODE = 1;
 
-    public String url ="http://192.168.68.105:5000/";
+    public String url ="http://c3fc-2001-4450-81e9-f000-28-458b-ec95-f419.ngrok.io";
 
 
     @Override
