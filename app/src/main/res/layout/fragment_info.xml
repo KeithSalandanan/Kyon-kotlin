@@ -1,16 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/background_info"
     tools:context=".InfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/white"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".GenOffspringResults">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@id/top"
+                android:background="@drawable/rounded_labels_title_yellow"
+                android:paddingLeft="@dimen/_25sdp"
+                android:paddingRight="@dimen/_50sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_24sdp"
+
+                    android:text="Kyon"
+                    android:fontFamily="@font/montserrat_black"
+                    android:textColor="@color/background"
+                    android:textSize="@dimen/_28sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ImageInputSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:paddingTop="@dimen/_35sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top"
+                android:rotation="-15">
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginRight="-55dp"
+                    android:src="@drawable/placeholder_img"
+                    android:id="@+id/LoadImg1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="@dimen/_55sdp"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/plus"
+                    app:layout_constraintEnd_toStartOf="@id/plus"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    android:rotation="-15"
+                    />
+
+                <TextView
+                    android:padding="@dimen/_1sdp"
+                    android:textAlignment="center"
+                    android:text="?"
+                    android:fontFamily="@font/montserrat_black"
+                    android:textSize="64dp"
+                    android:background="@drawable/circle_buttons_blue"
+                    android:textColor="@color/white"
+                    android:src="@drawable/placeholder_img"
+                    android:id="@+id/plus"
+                    android:textStyle="bold"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:elevation="6dp"
+                    android:layout_marginLeft="-55dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <ImageView
+                    android:background="@color/white"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/placeholder_img"
+                    android:id="@+id/LoadImg2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:rotation="15"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_55sdp"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/plus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/plus"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/showImage"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+
+                <ImageView
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/sample_classify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="-10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_35sdp"
+                android:paddingLeft="@dimen/_25sdp"
+                android:paddingRight="@dimen/_25sdp"
+                android:paddingBottom="@dimen/_25sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@drawable/rounded_infos"
+                app:layout_constraintTop_toBottomOf="@id/ImageInputSection">
+
+                <TextView
+                    android:id="@+id/txtWhat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_15sdp"
+
+
+                    android:text="What is Kyon?"
+                    android:fontFamily="@font/montserrat_extrabold"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="@dimen/_18sdp"
+                    android:text="@string/info"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="@color/Medium_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWhat"
+                    />
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

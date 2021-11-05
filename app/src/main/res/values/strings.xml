@@ -4,4 +4,5 @@
     <string name="no_detected">NO DOG DETECTED</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info">KYON is a thesis project developed by the group ALT+F4 namely David Magno, Keith Salandanan, Celynne Palao and Shane Gonda. It is an application that made use of Computer Vision and Image Processing. KYON is the first pioneer of generating possible offspring for dogs solely by their facial landmarks. KYON aims to be a tool helpful for anyone curious to know what their dog breed and offspring would be.</string>
 </resources>

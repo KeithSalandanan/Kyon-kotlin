@@ -1,16 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Medium_gray"
+    android:background="@drawable/background_settings"
     tools:context=".SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:text="@string/hello_blank_fragment" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:textSize="@dimen/_22ssp"
+                android:textColor="@color/background"
+                android:background="@drawable/circle_logo"
+                android:padding="@dimen/_2ssp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_35sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@id/top"
+                android:paddingLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_55sdp"
+                android:paddingTop="@dimen/_25sdp"
+                android:paddingBottom="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="@dimen/_24sdp"
+
+                    android:text="Kyon"
+                    android:fontFamily="@font/montserrat_black"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_28sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <TextView
+                    android:id="@+id/textDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="@dimen/_24sdp"
+                    android:text="Scan, classify and generate"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ImageInputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top">
+
+
+                <TextView
+                    android:textAlignment="center"
+                    android:text="Settings"
+                    android:textSize="32dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:src="@drawable/placeholder_img"
+                    android:id="@+id/plus"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:paddingLeft="@dimen/_60sdp"
+                android:paddingRight="@dimen/_60sdp"
+                android:paddingBottom="@dimen/_60sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ImageInputSection">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:textColor="@color/btn_label_blue"
+                        android:text="Privacy Statement"
+                        android:textSize="@dimen/_16sdp"
+                        android:textAlignment="textStart"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:textColor="@color/btn_label_blue"
+                        android:text="Guides &amp; Tips"
+                        android:textAlignment="textStart"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:textColor="@color/btn_label_blue"
+                        android:text="Exit"
+                        android:textAllCaps="false"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/montserrat_semibold"/>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>

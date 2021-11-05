@@ -22,7 +22,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
     public static final int REQUEST_SELECT_FILE = 100;
     private final static int FILECHOOSER_RESULTCODE = 1;
 
-    public String url ="http://c3fc-2001-4450-81e9-f000-28-458b-ec95-f419.ngrok.io";
+    public String url;
 
 
     @Override
@@ -30,6 +30,8 @@ public class GenOffpsringActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_gen_offspring);
+
+        url = getIntent().getStringExtra("link");
 
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
