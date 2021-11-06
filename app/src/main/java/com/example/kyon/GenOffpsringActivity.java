@@ -11,6 +11,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -111,7 +112,16 @@ public class GenOffpsringActivity extends AppCompatActivity {
             if (requestCode == REQUEST_SELECT_FILE) {
                 if (uploadMessage == null)
                     return;
-                uploadMessage.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, intent));
+                Toast.makeText(this, "here at request select file", Toast.LENGTH_SHORT).show();
+                Uri selectedImg = intent.getData();
+                ImageAnalyzerTensorflow imageAnalyze = new ImageAnalyzerTensorflow(this);
+                if(imageAnalyze.detectDog(selectedImg)){
+                    Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
+                    uploadMessage.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, intent));
+                }else{
+                    Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
+                    uploadMessage.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, null));
+                }
                 uploadMessage = null;
             }
         } else if (requestCode == FILECHOOSER_RESULTCODE) {
@@ -119,8 +129,16 @@ public class GenOffpsringActivity extends AppCompatActivity {
                 return;
             // Use MainActivity.RESULT_OK if you're implementing WebView inside Fragment
             // Use RESULT_OK only if you're implementing WebView inside an Activity
+            Toast.makeText(this, "here at filechooser", Toast.LENGTH_SHORT).show();
             Uri result = intent == null || resultCode != MainActivity.RESULT_OK ? null : intent.getData();
-            mUploadMessage.onReceiveValue(result);
+            ImageAnalyzerTensorflow imageAnalyze = new ImageAnalyzerTensorflow(this);
+            if(imageAnalyze.detectDog(result)){
+                Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
+                mUploadMessage.onReceiveValue(result);
+            }else{
+                Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
+                mUploadMessage.onReceiveValue(null);
+            }
             mUploadMessage = null;
         }
 
