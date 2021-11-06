@@ -29,10 +29,16 @@ public class GenOffpsringActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_gen_offspring);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+        //INPUT Links
         url = getIntent().getStringExtra("link");
+//      url = "http/";
 
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -97,7 +103,6 @@ public class GenOffpsringActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(i, "File Chooser"), FILECHOOSER_RESULTCODE);
             }
         });
-        //getSupportActionBar().hide();
 
 
 

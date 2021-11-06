@@ -44,7 +44,8 @@ public class HomeFragment extends Fragment {
         cardGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGenerate();
+//                startGenerate();
+                inputFirst();
             }
         });
 
@@ -52,8 +53,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void startGenerate() {
-
+    private void inputFirst() {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
         alert.setTitle("Input First");
@@ -80,6 +80,12 @@ public class HomeFragment extends Fragment {
         alert.show();
 
     }
+
+    private void startGenerate() {
+        Intent intent = new Intent(getActivity(), GenOffpsringActivity.class);
+        startActivity(intent);
+    }
+
 
     private void startClassify() {
         Intent intent = new Intent(getActivity(), CameraActivity.class);
