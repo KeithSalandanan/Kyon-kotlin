@@ -105,6 +105,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
@@ -144,6 +145,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
 
     }
+
 
 
     private class xWebViewClient extends WebViewClient {
