@@ -7,7 +7,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kyon"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".GuidesAndTips"
+            android:exported="false" />
+        <activity
+            android:name=".PrivacyStatement"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/xml" />

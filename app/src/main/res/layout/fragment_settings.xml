@@ -126,6 +126,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPrivacy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
@@ -138,6 +139,7 @@
                         android:layout_marginBottom="@dimen/_5sdp"/>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnGuides"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
@@ -150,6 +152,7 @@
                         android:layout_marginBottom="@dimen/_5sdp"/>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnExit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"

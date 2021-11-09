@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".PrivacyStatement">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnClose"
+        android:text="x"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/primary_text_yellow"
+        android:padding="@dimen/_2ssp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/montserrat_light"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:textSize="@dimen/_22ssp"
+        android:textColor="@color/background"
+        android:background="@drawable/circle_logo"
+        android:padding="@dimen/_2ssp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/top"
+        android:paddingTop="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kyon"
+            android:fontFamily="@font/montserrat_black"
+            android:textColor="@color/primary_text_yellow"
+            android:textSize="@dimen/_28sdp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="Privacy Statement"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:textColor="@color/Medium_gray"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            tools:layout_editor_absoluteX="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginRight="@dimen/_35sdp"
+        app:layout_constraintTop_toBottomOf="@id/top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Interpretation and Definitions"
+        android:textColor="@color/Medium_gray"
+            android:textAlignment="center"
+        android:fontFamily="@font/montserrat_semibold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Interpretation"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Definitions"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="For the purposes of this Privacy Policy:"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineHeight="@dimen/_15sdp"
+            android:text="@string/definitions"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Collecting and Using Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Types of Data Collected"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="\u2022 Usage Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Usage Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/usage_data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Information Collected while Using the Application"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/info_collected"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Use of Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The Company may use Personal Data for the following purposes:"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineHeight="@dimen/_15sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:text="@string/use_of_personaldata"
+                android:textColor="@color/Medium_gray" />
+
+            <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="We may share Your personal information in the following situations:"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/use_of_personaldata2"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Retention of Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/ret_perdata"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Transfer of Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/transfer_perdata"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Disclosure of Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Business Transactions"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Law enforcement"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency)."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Other legal requirements"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/other_legal"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Security of Your Personal Data"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Children's Privacy"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers. \nIf We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Links to Other Websites"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.\n We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Changes to this Privacy Policy"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.\n We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the 'Last updated' date at the top of this Privacy Policy.\n You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Contact Us"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_semibold"/>
+        <TextView
+            android:paddingTop="@dimen/_5sdp"
+            android:lineHeight="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="If you have any questions about this Privacy Policy, You can contact us:\n By email: keithsalandanan@gmail.com"
+            android:textColor="@color/Medium_gray"
+            android:fontFamily="@font/montserrat_regular"/>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

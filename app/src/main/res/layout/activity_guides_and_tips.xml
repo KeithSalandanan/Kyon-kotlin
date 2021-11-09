@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_guides_tips"
+    tools:context=".GuidesAndTips">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnClose"
+                android:text="x"
+                android:textSize="@dimen/_11ssp"
+                android:textColor="@color/white"
+                android:padding="@dimen/_2ssp"
+                android:background="@drawable/circle_yellow_buttons"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@id/top"
+                android:paddingLeft="@dimen/_25sdp"
+                android:paddingRight="@dimen/_50sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_24sdp"
+                    android:text="Guides \n&amp; Tips"
+                    android:fontFamily="@font/montserrat_black"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_28sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/showImage"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:rotation="-15"
+                    android:src="@drawable/sample_classify"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tip1"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_35sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_25sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@drawable/rounded_infos"
+                app:layout_constraintTop_toBottomOf="@id/top">
+
+                <TextView
+                    android:id="@+id/txtWhat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_15sdp"
+
+
+                    android:text="Dog's Face"
+                    android:fontFamily="@font/montserrat_extrabold"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="@dimen/_18sdp"
+                    android:text="Make sure that your dog was facing front on the camera for more accurate breed prediction."
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="@color/Medium_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWhat"
+                    />
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ImageInputSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-50dp"
+                android:paddingTop="@dimen/_35sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/showImage"
+                android:rotation="-15">
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginRight="-55dp"
+                    android:src="@drawable/dog1"
+                    android:id="@+id/LoadImg1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_55sdp"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/plus"
+                    app:layout_constraintEnd_toStartOf="@id/plus"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    android:rotation="-15"
+                    />
+
+                <TextView
+                    android:padding="@dimen/_1sdp"
+                    android:textAlignment="center"
+                    android:text="?"
+                    android:fontFamily="@font/montserrat_black"
+                    android:textSize="64dp"
+                    android:background="@drawable/circle_buttons_blue"
+                    android:textColor="@color/white"
+                    android:src="@drawable/placeholder_img"
+                    android:id="@+id/plus"
+                    android:textStyle="bold"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:elevation="6dp"
+                    android:layout_marginLeft="-55dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <ImageView
+                    android:background="@color/white"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/second_dog"
+                    android:id="@+id/LoadImg2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:rotation="20"
+                    android:layout_marginLeft="-25dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_55sdp"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/plus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/plus"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/txtClear"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/_35sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_25sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/showImage">
+
+                <TextView
+                    android:id="@+id/txtTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_30sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_5sdp"
+
+
+                    android:text="The clearer the better"
+                    android:fontFamily="@font/montserrat_extrabold"
+                    android:gravity="right"
+                    android:textColor="@color/primary_text_yellow"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="@dimen/_18sdp"
+                    android:text="Our offspring generator can provide a better results through a good quality images. "
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="@color/Medium_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtTip"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_marginTop="@dimen/_25sdp"
+                android:src="@drawable/sample_off"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toBottomOf="@+id/tip1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/txtClear"
+                android:elevation="-5dp"
+
+                />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
