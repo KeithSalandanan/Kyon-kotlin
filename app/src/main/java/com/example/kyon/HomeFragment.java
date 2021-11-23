@@ -44,8 +44,8 @@ public class HomeFragment extends Fragment {
         cardGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startGenerate();
-                inputFirst();
+                startGenerate();
+ //             inputFirst();
             }
         });
 

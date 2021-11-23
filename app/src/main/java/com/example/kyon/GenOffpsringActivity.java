@@ -37,8 +37,8 @@ public class GenOffpsringActivity extends AppCompatActivity {
         }
 
         //INPUT Links
-        url = getIntent().getStringExtra("link");
-//      url = "http/";
+        //url = getIntent().getStringExtra("link");
+        url = "http://192.168.1.4:5000";
 
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
