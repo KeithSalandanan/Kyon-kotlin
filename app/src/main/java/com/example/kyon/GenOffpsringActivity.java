@@ -105,6 +105,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
                     // Continue only if the File was successfully created
                     if (photoFile != null) {
+                        mCapturedImageURI = Uri.fromFile(photoFile);
                         mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                                 Uri.fromFile(photoFile));
@@ -212,18 +213,34 @@ public class GenOffpsringActivity extends AppCompatActivity {
             }
 
             Uri[] results = null;
+            ImageAnalyzerTensorflow imageAnalyze = new ImageAnalyzerTensorflow(this);
 
             // Check that the response is a good one
             if (resultCode == Activity.RESULT_OK) {
                 if (data == null) {
                     // If there is not data, then we may have taken a photo
                     if (mCameraPhotoPath != null) {
-                        results = new Uri[]{Uri.parse(mCameraPhotoPath)};
+
+                        if(imageAnalyze.detectDog(mCapturedImageURI)){
+                            Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
+                            results = new Uri[]{Uri.parse(mCameraPhotoPath)};
+                        }else{
+                            Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 } else {
                     String dataString = data.getDataString();
                     if (dataString != null) {
-                        results = new Uri[]{Uri.parse(dataString)};
+                        Uri selectedImg = data.getData();
+
+                        if(imageAnalyze.detectDog(selectedImg)){
+                            Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
+                            results = new Uri[]{Uri.parse(dataString)};
+                        }else{
+                            Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
+                        }
+                        //Detection
                     }
                 }
             }
