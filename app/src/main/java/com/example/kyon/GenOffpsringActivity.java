@@ -1,8 +1,10 @@
 package com.example.kyon;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +30,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GenOffpsringActivity extends AppCompatActivity {
+    private String url;
+    private WebView webView;
 
     private ValueCallback<Uri> mUploadMessage;
     private Uri mCapturedImageURI = null;
@@ -34,10 +39,22 @@ public class GenOffpsringActivity extends AppCompatActivity {
     private String mCameraPhotoPath;
     private static final int INPUT_FILE_REQUEST_CODE = 1;
     private static final int FILECHOOSER_RESULTCODE = 1;
-    private WebView webView;
-    public String url;
 
 
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(
+                Environment.DIRECTORY_PICTURES);
+        File imageFile = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+        return imageFile;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +64,12 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(GenOffpsringActivity.this, new String[]{Manifest.permission.CAMERA}, 123);
+            }
         }
 
         //INPUT Links
@@ -61,7 +84,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
         webView.setWebChromeClient(new WebChromeClient() {
             // For Android 5.0
-            public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> filePath, WebChromeClient.FileChooserParams fileChooserParams) {
+            public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> filePath, FileChooserParams fileChooserParams) {
                 // Double check that we don't have any existing callbacks
                 if (mFilePathCallback != null) {
                     mFilePathCallback.onReceiveValue(null);
@@ -82,7 +105,6 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
                     // Continue only if the File was successfully created
                     if (photoFile != null) {
-                        mCapturedImageURI = Uri.fromFile(photoFile);
                         mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                                 Uri.fromFile(photoFile));
@@ -113,21 +135,6 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
             }
 
-            private File createImageFile() throws IOException {
-                // Create an image file name
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                String imageFileName = "JPEG_" + timeStamp + "_";
-                File storageDir = Environment.getExternalStoragePublicDirectory(
-                        Environment.DIRECTORY_PICTURES);
-                File imageFile = File.createTempFile(
-                        imageFileName,  /* prefix */
-                        ".jpg",         /* suffix */
-                        storageDir      /* directory */
-                );
-                return imageFile;
-            }
-
-
             // openFileChooser for Android 3.0+
             public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
 
@@ -155,7 +162,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
                 // Camera capture image intent
                 final Intent captureIntent = new Intent(
-                        android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                        MediaStore.ACTION_IMAGE_CAPTURE);
 
                 captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 
@@ -168,7 +175,7 @@ public class GenOffpsringActivity extends AppCompatActivity {
 
                 // Set camera intent to file chooser
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS
-                        , new Parcelable[]{captureIntent});
+                        , new Parcelable[] { captureIntent });
 
                 // On select image call onActivityResult method of activity
                 startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
@@ -195,92 +202,73 @@ public class GenOffpsringActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
+            if (requestCode != INPUT_FILE_REQUEST_CODE || mFilePathCallback == null) {
+                super.onActivityResult(requestCode, resultCode, data);
+                return;
+            }
 
+            Uri[] results = null;
 
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, Intent data){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-                if (requestCode != INPUT_FILE_REQUEST_CODE || mFilePathCallback == null) {
-                    super.onActivityResult(requestCode, resultCode, data);
-                    return;
-                }
-
-                Uri[] results = null;
-
-                // Check that the response is a good one
-                if (resultCode == Activity.RESULT_OK) {
-                    ImageAnalyzerTensorflow imageAnalyze = new ImageAnalyzerTensorflow(this);
-
-                    if (data == null) {
-                        // If there is not data, then we may have taken a photo
-                        if (mCameraPhotoPath != null) {
-                            results = new Uri[]{Uri.parse(mCameraPhotoPath)};
-                                if(imageAnalyze.detectDog(mCapturedImageURI)){
-                                    Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
-                                    mFilePathCallback.onReceiveValue(results);
-                                }else{
-                                    Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
-                                    mFilePathCallback.onReceiveValue(null);
-                                }
-
-                        }
-                    } else {
-                        String dataString = data.getDataString();
-                        if (dataString != null) {
-                            results = new Uri[]{Uri.parse(dataString)};
-                            Uri result = data.getData();
-                            if(imageAnalyze.detectDog(result)){
-                                Toast.makeText(this, "Dog Detected", Toast.LENGTH_SHORT).show();
-                                mFilePathCallback.onReceiveValue(results);
-                            }else{
-                                Toast.makeText(this, "No Dog Detected", Toast.LENGTH_SHORT).show();
-                                mFilePathCallback.onReceiveValue(null);
-                            }
-                        }
+            // Check that the response is a good one
+            if (resultCode == Activity.RESULT_OK) {
+                if (data == null) {
+                    // If there is not data, then we may have taken a photo
+                    if (mCameraPhotoPath != null) {
+                        results = new Uri[]{Uri.parse(mCameraPhotoPath)};
                     }
-                }
-                mFilePathCallback = null;
-
-            } else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-                if (requestCode != FILECHOOSER_RESULTCODE || mUploadMessage == null) {
-                    super.onActivityResult(requestCode, resultCode, data);
-                    return;
-                }
-
-                if (requestCode == FILECHOOSER_RESULTCODE) {
-
-                    if (null == this.mUploadMessage) {
-                        return;
-
+                } else {
+                    String dataString = data.getDataString();
+                    if (dataString != null) {
+                        results = new Uri[]{Uri.parse(dataString)};
                     }
-
-                    Uri result = null;
-
-                    try {
-                        if (resultCode != RESULT_OK) {
-
-                            result = null;
-
-                        } else {
-
-                            // retrieve from the private variable if the intent is null
-                            result = data == null ? mCapturedImageURI : data.getData();
-                        }
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "activity :" + e,
-                                Toast.LENGTH_LONG).show();
-                    }
-
-                    mUploadMessage.onReceiveValue(result);
-                    mUploadMessage = null;
-
                 }
             }
 
-            return;
+            mFilePathCallback.onReceiveValue(results);
+            mFilePathCallback = null;
+
+        } else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
+            if (requestCode != FILECHOOSER_RESULTCODE || mUploadMessage == null) {
+                super.onActivityResult(requestCode, resultCode, data);
+                return;
+            }
+
+            if (requestCode == FILECHOOSER_RESULTCODE) {
+
+                if (null == this.mUploadMessage) {
+                    return;
+
+                }
+
+                Uri result = null;
+
+                try {
+                    if (resultCode != RESULT_OK) {
+
+                        result = null;
+
+                    } else {
+
+                        // retrieve from the private variable if the intent is null
+                        result = data == null ? mCapturedImageURI : data.getData();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "activity :" + e,
+                            Toast.LENGTH_LONG).show();
+                }
+
+                mUploadMessage.onReceiveValue(result);
+                mUploadMessage = null;
+
+            }
         }
+
+        return;
+    }
 
 
 

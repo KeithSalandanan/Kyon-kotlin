@@ -8,15 +8,18 @@
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/background_info.xml" value="0.26615384615384613" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/background_offspring_results.xml" value="0.26615384615384613" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/background_settings.xml" value="0.2703125" />
+        <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/bg_guides_tips.xml" value="0.2703125" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/rounded_infos.xml" value="0.2703125" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/drawable/rounded_labels_title.xml" value="0.2703125" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_camera.xml" value="0.24010416666666667" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_classification.xml" value="0.25416666666666665" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_gen_offspring.xml" value="0.25416666666666665" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_gen_offspring_results.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_guides_and_tips.xml" value="0.4" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/activity_privacy_statement.xml" value="0.1" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/fragment_home.xml" value="0.21422101449275363" />
-        <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/fragment_info.xml" value="0.4" />
+        <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/fragment_info.xml" value="0.264" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/fragment_settings.xml" value="0.4" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/layout/network_security_config.xml" value="0.15833333333333333" />
         <entry key="..\:/Projects/Kyon-kotlin/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26615384615384613" />

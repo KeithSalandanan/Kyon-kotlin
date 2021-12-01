@@ -22,6 +22,10 @@ import soup.neumorphism.NeumorphCardView;
 
 public class HomeFragment extends Fragment {
 
+    private static final String[] CAMERA_PERMISSION = new String[]{Manifest.permission.CAMERA};
+    private static final int CAMERA_REQUEST_CODE = 10;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,8 +39,11 @@ public class HomeFragment extends Fragment {
         cardClassify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startClassify();
+                if (hasCameraPermission()) {
+                    startClassify();
+                } else {
+                    requestPermission();
+                }
 
             }
         });
@@ -44,8 +51,12 @@ public class HomeFragment extends Fragment {
         cardGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startGenerate();
- //             inputFirst();
+                if (hasCameraPermission()) {
+                    startGenerate();
+                } else {
+                    requestPermission();
+                }
+
             }
         });
 
@@ -80,6 +91,24 @@ public class HomeFragment extends Fragment {
         alert.show();
 
     }
+        private boolean hasCameraPermission() {
+        return ContextCompat.checkSelfPermission(
+                getActivity(),
+                Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(
+                getActivity(),
+                CAMERA_PERMISSION,
+                CAMERA_REQUEST_CODE
+        );
+    }
+
+
+
+
 
     private void startGenerate() {
         Intent intent = new Intent(getActivity(), GenOffpsringActivity.class);
